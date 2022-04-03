@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /api
+
+
+app:
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5432/studentmanagementsystem
+    username: postgres
+    password: password
+    pool-size: 30
