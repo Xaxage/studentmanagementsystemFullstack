@@ -1,16 +1,29 @@
 package com.xaxage.studentmanagementsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public class Student {
 
     private final UUID studentId;
+
+    @NotBlank
     private final String firstName;
+    @NotBlank
     private final String lastName;
+    @NotBlank
     private final String email;
+    @NotNull
     private final Gender gender;
 
-    public Student(UUID studentId, String firstName, String lastName, String email, Gender gender) {
+    public Student(@JsonProperty("studentId") UUID studentId,
+                   @JsonProperty("firstName") String firstName,
+                   @JsonProperty("lastName") String lastName,
+                   @JsonProperty("email") String email,
+                   @JsonProperty("gender") Gender gender) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,7 +51,19 @@ public class Student {
         return gender;
     }
 
-    public enum Gender{
-        MAlE, FEMALE
+    public enum Gender {
+        MALE, FEMALE
+    }
+
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                '}';
     }
 }

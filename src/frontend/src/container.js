@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Container = props => (
-    <div style={{width: "1400px", margin: "0 auto", textAlign: "center"}}>
+    <div style={{width: "1400px", margin: "0 auto", textAlign: "center", padding: "1px"}}>
         {props.children}
     </div>
 );
