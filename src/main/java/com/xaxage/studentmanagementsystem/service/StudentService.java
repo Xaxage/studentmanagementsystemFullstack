@@ -1,6 +1,7 @@
 package com.xaxage.studentmanagementsystem.service;
 
 import com.xaxage.studentmanagementsystem.model.Student;
+import com.xaxage.studentmanagementsystem.model.StudentCourse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface StudentService {
     void addNewStudent(Student student);
 
     void addNewStudent(UUID studentId, Student student);
+
+    List<StudentCourse> getAllCoursesForStudent(UUID studentId);
 }

@@ -1,6 +1,7 @@
 package com.xaxage.studentmanagementsystem.dao;
 
 import com.xaxage.studentmanagementsystem.model.Student;
+import com.xaxage.studentmanagementsystem.model.StudentCourse;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface StudentDAO {
     int insertStudent(UUID newStudentId, Student student);
 
     boolean isEmailTaken(String email);
+
+    List<StudentCourse> selectAllStudentCourses(UUID studentId);
 }

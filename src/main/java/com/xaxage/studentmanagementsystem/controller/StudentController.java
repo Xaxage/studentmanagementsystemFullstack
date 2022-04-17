@@ -1,14 +1,16 @@
 package com.xaxage.studentmanagementsystem.controller;
 
 import com.xaxage.studentmanagementsystem.model.Student;
+import com.xaxage.studentmanagementsystem.model.StudentCourse;
 import com.xaxage.studentmanagementsystem.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("students")
+@RequestMapping("api/students")
 public class StudentController {
 
     private final StudentService studentService;
@@ -25,5 +27,10 @@ public class StudentController {
     @PostMapping
     public void addNewStudent(@RequestBody @Valid Student student) {
         studentService.addNewStudent(student);
+    }
+
+    @GetMapping(path = "{studentId}/courses")
+    public List<StudentCourse> getAllCoursesForStudent(@PathVariable("studentId") UUID studentId) {
+        return studentService.getAllCoursesForStudent(studentId);
     }
 }

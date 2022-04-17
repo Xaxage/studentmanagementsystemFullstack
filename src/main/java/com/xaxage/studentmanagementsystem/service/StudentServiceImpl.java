@@ -3,6 +3,7 @@ package com.xaxage.studentmanagementsystem.service;
 import com.xaxage.studentmanagementsystem.dao.StudentDAO;
 import com.xaxage.studentmanagementsystem.exception.ApiRequestException;
 import com.xaxage.studentmanagementsystem.model.Student;
+import com.xaxage.studentmanagementsystem.model.StudentCourse;
 import com.xaxage.studentmanagementsystem.validator.EmailValidator;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +45,10 @@ public class StudentServiceImpl implements StudentService {
         }
 
         studentDAO.insertStudent(newStudentId, student);
+    }
+
+    @Override
+    public List<StudentCourse> getAllCoursesForStudent(UUID studentId) {
+        return studentDAO.selectAllStudentCourses(studentId);
     }
 }
